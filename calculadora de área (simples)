@@ -1,0 +1,52 @@
+package aula12;
+
+import java.util.Scanner;
+
+public class CalculadoraDeArea {
+
+    public static void main(String[] args) {
+        Scanner ler = new Scanner(System.in);
+        int lado = 0;
+        int altura = 0;
+        int base = 0;
+        double area = 0;
+        double raio = 0;
+        ClasseAreaRaio calculo = new ClasseAreaRaio();
+
+        System.out.println("Digite o número correspondente ao cálculo que deseja fazer:");
+        System.out.println("1 - Área do quadrado");
+        System.out.println("2 - Área do retângulo");
+        System.out.println("3 - Área do círculo");
+
+        int opcao = ler.nextInt();
+
+        switch (opcao) {
+            case 1:
+                System.out.println("Digite a medida do lado: ");
+                lado = ler.nextInt();
+                calculo.AreaQuadrado(lado, area);
+                System.out.println("Área do quadrado: " + area);
+                break;
+
+            case 2:
+                System.out.println("Digite a medida da altura: ");
+                altura = ler.nextInt();
+                System.out.println("Digite a medida da base: ");
+                base = ler.nextInt();
+                calculo.AreaRetangulo(altura, base, area);
+                System.out.println("Área do retângulo: " + area);
+                break;
+
+            case 3:
+                System.out.println("Digite a medida do raio: ");
+                raio = ler.nextDouble();
+                ClasseAreaRaio.AreaCirculo(area, raio);
+                System.out.println("Área do círculo: " + area);
+                break;
+
+            default:
+                System.out.println("Opção inválida.");
+                break;
+        }
+    }
+}
